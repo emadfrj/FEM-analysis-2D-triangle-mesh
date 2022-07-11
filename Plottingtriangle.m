@@ -1,3 +1,4 @@
+% use this function for illustration
 function Plottingtriangle(Node,Element,U,FonmisStress,Scale)
 n=size(Node,1);
 X=zeros(n,1);

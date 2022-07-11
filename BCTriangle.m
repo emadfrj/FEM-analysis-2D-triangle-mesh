@@ -1,3 +1,4 @@
+%This function adds the boundary conditions to the model by modifying K(global stiffness matrix) and F(force matrix)
 function [K,F]=BCTriangle(K,F,BC,angleBC)
 
 n=size(BC,1); %number of prescribed deformations

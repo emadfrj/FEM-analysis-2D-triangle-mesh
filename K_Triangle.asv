@@ -1,7 +1,5 @@
-% This function calculate the stiffness matrix (k) and two matrixes of B and D (useful for calculating thermal forces and post-processing) for each element
-% k, B, and D  are 3 dimentional matrix that its third index is related to element index
-%This function also modify Element matrix and sorts nodes in each element
-%in counterclockwise mode
+% This function calculate the stiffness matrix (k) and two matrix B and D () for each element
+% k is a 3 dimentional matrix that its third index is related to element index
 function [k,A,Element,B,D]=K_Triangle(Node,Element,E,t,Nu)
 n=size(Element,1);%number of Elements
 k=zeros(6,6,n);

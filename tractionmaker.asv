@@ -1,8 +1,12 @@
-%This function gets Node and edge matrix and the distributed force formula
+%This function gets Node and edge matrix and the distrubuted force formula
 %in x and y direction. fx(x,y) and fy(x,y) are both functions of x and y.  
-%The output is traction force vector with same size of concentrated force vector
+%The output is thermal forces vector
 %This vector can easily be added to Force vector 
 function Ftraction=tractionmaker(Node,edge,fx,fy)
+    %fy=@(x,y) (-10*x^2); %Disturbuted force formula
+    %fx=@(x,y) (0);
+
+
     Node=sortrows(Node,1);
     Ftraction=zeros(2*size(Node,1),1);% Force matrix resulting from traction force
     for i=1:size(edge,1)

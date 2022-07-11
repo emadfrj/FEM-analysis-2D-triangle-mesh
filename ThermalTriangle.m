@@ -1,3 +1,5 @@
+%This function calculate thermal forces vector
+%This vector can easily be added to Force vector 
 function [Fth,e0]=ThermalTriangle(Element,n,Thermal,alpha,t,A,B,D)
 ne=size(Element,1);%number of elements
 e0 = zeros(ne,3);%thermal strain 

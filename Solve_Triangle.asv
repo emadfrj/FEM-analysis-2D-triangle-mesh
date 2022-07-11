@@ -5,7 +5,7 @@
 %three columns. the first column is the page number of excel file allocated to the
 %edge under distributed force. the second and third columns are function handler for distributed force 
 %in the direction of x and y. both these functions have to be relative to x and y
-%For example DistributedForces ={8,  @(x,y) (0),  @(x,y) (-10*x^2)}
+%For example fx=@(x,y) (0) and fy=@(x,y) (-10*x^2)
 function [F,strain,stress,FonmisStress] = Solve_Triangle(ExcelPath,MagnifyingScale,DistributedForces)
 Node=xlsread(ExcelPath,1);
 Node=sortrows(Node,1);
