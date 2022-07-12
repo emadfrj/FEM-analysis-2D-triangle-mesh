@@ -71,7 +71,7 @@ The nodes are indexed in this way:
 
 The input file is <a href="https://github.com/emadfrj/FEM-analysis-2D-triangle-mesh/blob/main/TriangleDistributedForce.xlsx">TriangleDistributedForce.xlsx</a> 
 
-By calling Solve_Triangle function ```Solve_Triangle('Triangle.xlsx',1000,  {8,  @(x,y) (0),  @(x,y) 100000*sin(0.2*pi*x) } )``` we would have the results like the following picture.
+By calling Solve_Triangle function ```Solve_Triangle('Triangle.xlsx',100000,  {8,  @(x,y) (0),  @(x,y) 100000*sin(0.2*pi*x) } )``` we would have the results like the following picture.
 
 <p float="middle">
     <img src="Readme-img/ResultsDistributedForce.png" width="1200">
