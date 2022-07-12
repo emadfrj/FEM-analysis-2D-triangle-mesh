@@ -10,7 +10,7 @@ It takes three types of **boundary condition** into account.
 * **Non-zero** transformation of nodes in each direction.
 * Boundary conditions with an **angle** with the horizon(ramp).
 
-It also accepts **concentrate forces** on nodes, **thermal forces** on elements, and distributed forces on a edge of the structure.
+It also accepts **concentrate forces** on nodes, **thermal forces** on elements, and **distributed forces** on the edges of the structure.
   
 ## Model Input
 Structure’s data (nodes' position, elements, material characteristics, forces, and boundary conditions) are fed to model by an Excel file.
@@ -26,10 +26,10 @@ The excel file has seven pages.
 * **edge page**: This page is used to define an edge of the structure. It is useful when applying distributed force on that edge. The first and second columns of this page are the node index of the element's surface that are in that edge. The third column is the tickness of that surface. 
 
 ## How to use it
-After making excel input file form the structure just call Solve_Triangle(ExcelPath,MagnifyingScale,DistributedForces) function. 
-* **'ExcelPath'** is the path to your excel file as string. If the excel file is in the same directory as the Solve_Triangle.m file just write excel file name. For example: Solve_Triangle('Triangle.xlsx',1000)
+After making excel input file form the structure just call ```Solve_Triangle(ExcelPath,MagnifyingScale,DistributedForces)``` function. 
+* **'ExcelPath'** is the path to your excel file as string. If the excel file is in the same directory as the Solve_Triangle.m file just write excel file name. For example: ```Solve_Triangle('Triangle.xlsx',1000)```
 * **MagnifyingScale** magifys the displacements in plotting
-* **DistributedForces** is an optional argument. It has to be a **cell array** with three columns. The first column is the page number of excel file allocated to the edge under distributed load. The second and third columns are function handlers for distributed force in the direction of x and y. Both of these functions have to be relative to x and y. For example DistributedForces ={8,  @(x,y) (0),  @(x,y) (-10*x^2) }
+* **DistributedForces** is an optional argument. It has to be a <a href="https://www.mathworks.com/help/matlab/cell-arrays.html">**cell array**</a> with three columns. Each row is for one distributed force. The first column is the page number of excel file allocated to the edge under distributed load. The second and third columns are function handlers for distributed force in the direction of x and y. Both of these functions have to be relative to x and y. For example: ``` DistributedForces ={8,  @(x,y) (0),  @(x,y) (-10*x^2) } ```
 
 
 ## Example with consentrated forces
@@ -46,10 +46,10 @@ The nodes are indexed in this way:
 
 The input file is <a href="https://github.com/emadfrj/FEM-analysis-2D-triangle-mesh/blob/main/Triangle.xlsx">Triangle.xlsx</a> 
 
-By calling Solve_Triangle function (Solve_Triangle('Triangle.xlsx',1000)) we would have the results like the following picture.
+By calling Solve_Triangle function ```Solve_Triangle('Triangle.xlsx',1000)``` we would have the results like the following picture.
 
 <p float="middle">
-    <img src="Readme-img/Results.png" width="600">
+    <img src="Readme-img/Results.png" width="1200">
 </p>
 
 ## Example with distributed force
@@ -59,7 +59,8 @@ We have an structure that its uper edge is under sinusoidal load as follow:
     <img src="Readme-img/questionDistributedForce.png" width="600">
 </p>
 
-DistributedForces ={8,  @(x,y) (0),  @(x,y) 100000*sin(0.2*pi*x) }     
+
+```DistributedForces ={8,  @(x,y) (0),  @(x,y) 100000*sin(0.2*pi*x) }```     
 8th page of excel file is for upper edge of structure
 
 The nodes are indexed in this way:
@@ -70,8 +71,8 @@ The nodes are indexed in this way:
 
 The input file is <a href="https://github.com/emadfrj/FEM-analysis-2D-triangle-mesh/blob/main/TriangleDistributedForce.xlsx">TriangleDistributedForce.xlsx</a> 
 
-By calling Solve_Triangle function _ Solve_Triangle('Triangle.xlsx',1000,  {8,  @(x,y) (0),  @(x,y) 100000*sin(0.2*pi*x) } )    _we would have the results like the following picture.
+By calling Solve_Triangle function ```Solve_Triangle('Triangle.xlsx',1000,  {8,  @(x,y) (0),  @(x,y) 100000*sin(0.2*pi*x) } )``` we would have the results like the following picture.
 
 <p float="middle">
-    <img src="Readme-img/ResultsDistributedForce" width="600">
+    <img src="Readme-img/ResultsDistributedForce.png" width="1200">
 </p>
